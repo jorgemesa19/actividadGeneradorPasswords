@@ -1,6 +1,20 @@
 import 'package:flutter/material.dart';
 
-class SeccionPersonalizar extends StatelessWidget {
+class SeccionPersonalizar extends StatefulWidget {
+  @override
+  _SeccionPersonalizarState createState() => _SeccionPersonalizarState();
+}
+
+class _SeccionPersonalizarState extends State<SeccionPersonalizar> {
+  double _longitudPassword = 8; // Valor inicial del slider
+  bool _facilDecir = false;
+  bool _facilLeer = false;
+  bool _todosCaracteres = false;
+  bool _mayusculas = false;
+  bool _minusculas = false;
+  bool _numeros = false;
+  bool _simbolos = false;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,12 +40,16 @@ class SeccionPersonalizar extends StatelessWidget {
               SizedBox(width: 10),
               Expanded(
                 child: Slider(
-                  value: 8,
+                  value: _longitudPassword,
                   min: 6,
                   max: 20,
                   divisions: 14,
-                  label: '8',
-                  onChanged: (value) {},
+                  label: _longitudPassword.round().toString(),
+                  onChanged: (value) {
+                    setState(() {
+                      _longitudPassword = value;
+                    });
+                  },
                 ),
               ),
             ],
@@ -41,37 +59,63 @@ class SeccionPersonalizar extends StatelessWidget {
             title: Text('Facil de decir'),
             leading: Radio(
               value: true,
-              groupValue: true,
-              onChanged: (value) {},
+              groupValue: _facilDecir,
+              onChanged: (value) {
+                setState(() {
+                  _facilDecir = value!;
+                  _facilLeer = false;
+                  _todosCaracteres = false;
+                });
+              },
             ),
           ),
           ListTile(
             title: Text('Facil de leer'),
             leading: Radio(
               value: true,
-              groupValue: false,
-              onChanged: (value) {},
+              groupValue: _facilLeer,
+              onChanged: (value) {
+                setState(() {
+                  _facilDecir = false;
+                  _facilLeer = value!;
+                  _todosCaracteres = false;
+                });
+              },
             ),
           ),
           ListTile(
             title: Text('Todos los caracteres'),
             leading: Radio(
               value: true,
-              groupValue: false,
-              onChanged: (value) {},
+              groupValue: _todosCaracteres,
+              onChanged: (value) {
+                setState(() {
+                  _facilDecir = false;
+                  _facilLeer = false;
+                  _todosCaracteres = value!;
+                });
+              },
             ),
           ),
           SizedBox(height: 10),
           Row(
             children: [
               Checkbox(
-                value: false,
-                onChanged: (value) {},
+                value: _mayusculas,
+                onChanged: (value) {
+                  setState(() {
+                    _mayusculas = value!;
+                  });
+                },
               ),
               Text('Mayúsculas'),
               Checkbox(
-                value: false,
-                onChanged: (value) {},
+                value: _minusculas,
+                onChanged: (value) {
+                  setState(() {
+                    _minusculas = value!;
+                  });
+                },
               ),
               Text('Minúsculas'),
             ],
@@ -79,13 +123,21 @@ class SeccionPersonalizar extends StatelessWidget {
           Row(
             children: [
               Checkbox(
-                value: false,
-                onChanged: (value) {},
+                value: _numeros,
+                onChanged: (value) {
+                  setState(() {
+                    _numeros = value!;
+                  });
+                },
               ),
               Text('Números'),
               Checkbox(
-                value: false,
-                onChanged: (value) {},
+                value: _simbolos,
+                onChanged: (value) {
+                  setState(() {
+                    _simbolos = value!;
+                  });
+                },
               ),
               Text('Símbolos'),
             ],
