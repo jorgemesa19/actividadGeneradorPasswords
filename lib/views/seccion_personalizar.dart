@@ -25,19 +25,19 @@ class _SeccionPersonalizarState extends State<SeccionPersonalizar> {
           width: 1, // Grosor del borde
         ),
       ),
-      padding: EdgeInsets.all(16),
+      padding: const EdgeInsets.all(16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             'Personalice su contraseña',
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Row(
             children: [
-              Text('Longitud de contraseña:'),
-              SizedBox(width: 10),
+              const Text('Longitud de contraseña:'),
+              const SizedBox(width: 10),
               Expanded(
                 child: Slider(
                   value: _longitudPassword,
@@ -54,9 +54,9 @@ class _SeccionPersonalizarState extends State<SeccionPersonalizar> {
               ),
             ],
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           ListTile(
-            title: Text('Facil de decir'),
+            title: const Text('Fácil de decir'),
             leading: Radio(
               value: true,
               groupValue: _facilDecir,
@@ -70,7 +70,7 @@ class _SeccionPersonalizarState extends State<SeccionPersonalizar> {
             ),
           ),
           ListTile(
-            title: Text('Facil de leer'),
+            title: const Text('Fácil de leer'),
             leading: Radio(
               value: true,
               groupValue: _facilLeer,
@@ -84,7 +84,7 @@ class _SeccionPersonalizarState extends State<SeccionPersonalizar> {
             ),
           ),
           ListTile(
-            title: Text('Todos los caracteres'),
+            title: const Text('Todos los caracteres'),
             leading: Radio(
               value: true,
               groupValue: _todosCaracteres,
@@ -97,7 +97,7 @@ class _SeccionPersonalizarState extends State<SeccionPersonalizar> {
               },
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Row(
             children: [
               Checkbox(
@@ -108,7 +108,7 @@ class _SeccionPersonalizarState extends State<SeccionPersonalizar> {
                   });
                 },
               ),
-              Text('Mayúsculas'),
+              const Text('Mayúsculas'),
               Checkbox(
                 value: _minusculas,
                 onChanged: (value) {
@@ -117,7 +117,7 @@ class _SeccionPersonalizarState extends State<SeccionPersonalizar> {
                   });
                 },
               ),
-              Text('Minúsculas'),
+              const Text('Minúsculas'),
             ],
           ),
           Row(
@@ -130,7 +130,7 @@ class _SeccionPersonalizarState extends State<SeccionPersonalizar> {
                   });
                 },
               ),
-              Text('Números'),
+              const Text('Números'),
               Checkbox(
                 value: _simbolos,
                 onChanged: (value) {
@@ -139,7 +139,7 @@ class _SeccionPersonalizarState extends State<SeccionPersonalizar> {
                   });
                 },
               ),
-              Text('Símbolos'),
+              const Text('Símbolos'),
             ],
           ),
         ],

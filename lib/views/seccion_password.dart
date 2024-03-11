@@ -14,11 +14,11 @@ class MiFila extends StatelessWidget {
               width: 1, // Grosor del borde
             ),
           ),
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Expanded(
+              const Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -32,7 +32,7 @@ class MiFila extends StatelessWidget {
               Column(
                 children: [
                   IconButton(
-                    icon: Icon(Icons.content_copy),
+                    icon: const Icon(Icons.content_copy),
                     onPressed: () {
                       // Aquí puedes implementar la lógica para copiar texto
                       // Por ejemplo: Clipboard.setData(ClipboardData(text: 'Texto a copiar'));
@@ -40,11 +40,10 @@ class MiFila extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(width: 10), // Separación entre los iconos
               Column(
                 children: [
                   IconButton(
-                    icon: Icon(Icons.refresh),
+                    icon: const Icon(Icons.refresh),
                     onPressed: () {
                       // Aquí puedes implementar la lógica para refrescar
                     },
@@ -54,8 +53,7 @@ class MiFila extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(height: 20), // Espacio entre el contenedor y el borde superior
-        // Aquí puedes agregar más widgets si lo necesitas
+        const SizedBox(height: 20), // Espacio entre el contenedor y el borde superior
       ],
     );
   }
