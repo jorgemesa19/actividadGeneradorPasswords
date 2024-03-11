@@ -10,8 +10,8 @@ class MiFila extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             border: Border.all(
-              color: Colors.grey, // Color del borde
-              width: 1, // Grosor del borde
+              color: Colors.grey,
+              width: 1,
             ),
           ),
           padding: const EdgeInsets.all(16),
@@ -23,7 +23,7 @@ class MiFila extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Texto ejemplo',
+                      'asdfgrewdvbnu36985',
                       style: TextStyle(fontSize: 16),
                     ),
                   ],
@@ -34,8 +34,6 @@ class MiFila extends StatelessWidget {
                   IconButton(
                     icon: const Icon(Icons.content_copy),
                     onPressed: () {
-                      // Aquí puedes implementar la lógica para copiar texto
-                      // Por ejemplo: Clipboard.setData(ClipboardData(text: 'Texto a copiar'));
                     },
                   ),
                 ],
@@ -45,7 +43,6 @@ class MiFila extends StatelessWidget {
                   IconButton(
                     icon: const Icon(Icons.refresh),
                     onPressed: () {
-                      // Aquí puedes implementar la lógica para refrescar
                     },
                   ),
                 ],
@@ -53,7 +50,7 @@ class MiFila extends StatelessWidget {
             ],
           ),
         ),
-        const SizedBox(height: 20), // Espacio entre el contenedor y el borde superior
+        const SizedBox(height: 20),
       ],
     );
   }

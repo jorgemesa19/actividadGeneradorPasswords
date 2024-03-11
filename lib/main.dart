@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('PASSWORD GENERATOR'),
+          title: const Text('Password generator'),
         ),
         body: Padding(
           padding: const EdgeInsets.all(10),

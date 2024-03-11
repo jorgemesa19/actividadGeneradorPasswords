@@ -6,7 +6,7 @@ class SeccionPersonalizar extends StatefulWidget {
 }
 
 class _SeccionPersonalizarState extends State<SeccionPersonalizar> {
-  double _longitudPassword = 8; // Valor inicial del slider
+  double _longitudPassword = 8;
   bool _facilDecir = false;
   bool _facilLeer = false;
   bool _todosCaracteres = false;
@@ -21,8 +21,8 @@ class _SeccionPersonalizarState extends State<SeccionPersonalizar> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         border: Border.all(
-          color: Colors.grey, // Color del borde
-          width: 1, // Grosor del borde
+          color: Colors.grey,
+          width: 1,
         ),
       ),
       padding: const EdgeInsets.all(16),
@@ -50,6 +50,7 @@ class _SeccionPersonalizarState extends State<SeccionPersonalizar> {
                       _longitudPassword = value;
                     });
                   },
+                  activeColor: Colors.red,
                 ),
               ),
             ],
@@ -67,6 +68,7 @@ class _SeccionPersonalizarState extends State<SeccionPersonalizar> {
                   _todosCaracteres = false;
                 });
               },
+              activeColor: Colors.red,
             ),
           ),
           ListTile(
@@ -81,6 +83,7 @@ class _SeccionPersonalizarState extends State<SeccionPersonalizar> {
                   _todosCaracteres = false;
                 });
               },
+              activeColor: Colors.red,
             ),
           ),
           ListTile(
@@ -95,6 +98,7 @@ class _SeccionPersonalizarState extends State<SeccionPersonalizar> {
                   _todosCaracteres = value!;
                 });
               },
+              activeColor: Colors.red,
             ),
           ),
           const SizedBox(height: 10),
@@ -107,6 +111,7 @@ class _SeccionPersonalizarState extends State<SeccionPersonalizar> {
                     _mayusculas = value!;
                   });
                 },
+                activeColor: Colors.red,
               ),
               const Text('Mayúsculas'),
               Checkbox(
@@ -116,6 +121,7 @@ class _SeccionPersonalizarState extends State<SeccionPersonalizar> {
                     _minusculas = value!;
                   });
                 },
+                activeColor: Colors.red,
               ),
               const Text('Minúsculas'),
             ],
@@ -129,6 +135,7 @@ class _SeccionPersonalizarState extends State<SeccionPersonalizar> {
                     _numeros = value!;
                   });
                 },
+                activeColor: Colors.red,
               ),
               const Text('Números'),
               Checkbox(
@@ -138,6 +145,7 @@ class _SeccionPersonalizarState extends State<SeccionPersonalizar> {
                     _simbolos = value!;
                   });
                 },
+                activeColor: Colors.red,
               ),
               const Text('Símbolos'),
             ],
