@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 class SeccionPersonalizar extends StatefulWidget {
+  final Function(double, bool, bool, bool, bool, bool, bool, bool) onSettingsChanged;
+
+  const SeccionPersonalizar({required this.onSettingsChanged});
+
   @override
   _SeccionPersonalizarState createState() => _SeccionPersonalizarState();
 }
@@ -49,6 +53,7 @@ class _SeccionPersonalizarState extends State<SeccionPersonalizar> {
                     setState(() {
                       _longitudPassword = value;
                     });
+                    widget.onSettingsChanged(_longitudPassword, _facilDecir, _facilLeer, _todosCaracteres, _mayusculas, _minusculas, _numeros, _simbolos);
                   },
                   activeColor: Colors.red,
                 ),
@@ -67,6 +72,7 @@ class _SeccionPersonalizarState extends State<SeccionPersonalizar> {
                   _facilLeer = false;
                   _todosCaracteres = false;
                 });
+                widget.onSettingsChanged(_longitudPassword, _facilDecir, _facilLeer, _todosCaracteres, _mayusculas, _minusculas, _numeros, _simbolos);
               },
               activeColor: Colors.red,
             ),
@@ -82,6 +88,7 @@ class _SeccionPersonalizarState extends State<SeccionPersonalizar> {
                   _facilLeer = value!;
                   _todosCaracteres = false;
                 });
+                widget.onSettingsChanged(_longitudPassword, _facilDecir, _facilLeer, _todosCaracteres, _mayusculas, _minusculas, _numeros, _simbolos);
               },
               activeColor: Colors.red,
             ),
@@ -97,6 +104,7 @@ class _SeccionPersonalizarState extends State<SeccionPersonalizar> {
                   _facilLeer = false;
                   _todosCaracteres = value!;
                 });
+                widget.onSettingsChanged(_longitudPassword, _facilDecir, _facilLeer, _todosCaracteres, _mayusculas, _minusculas, _numeros, _simbolos);
               },
               activeColor: Colors.red,
             ),
@@ -110,6 +118,7 @@ class _SeccionPersonalizarState extends State<SeccionPersonalizar> {
                   setState(() {
                     _mayusculas = value!;
                   });
+                  widget.onSettingsChanged(_longitudPassword, _facilDecir, _facilLeer, _todosCaracteres, _mayusculas, _minusculas, _numeros, _simbolos);
                 },
                 activeColor: Colors.red,
               ),
@@ -120,6 +129,7 @@ class _SeccionPersonalizarState extends State<SeccionPersonalizar> {
                   setState(() {
                     _minusculas = value!;
                   });
+                  widget.onSettingsChanged(_longitudPassword, _facilDecir, _facilLeer, _todosCaracteres, _mayusculas, _minusculas, _numeros, _simbolos);
                 },
                 activeColor: Colors.red,
               ),
@@ -134,6 +144,7 @@ class _SeccionPersonalizarState extends State<SeccionPersonalizar> {
                   setState(() {
                     _numeros = value!;
                   });
+                  widget.onSettingsChanged(_longitudPassword, _facilDecir, _facilLeer, _todosCaracteres, _mayusculas, _minusculas, _numeros, _simbolos);
                 },
                 activeColor: Colors.red,
               ),
@@ -144,6 +155,7 @@ class _SeccionPersonalizarState extends State<SeccionPersonalizar> {
                   setState(() {
                     _simbolos = value!;
                   });
+                  widget.onSettingsChanged(_longitudPassword, _facilDecir, _facilLeer, _todosCaracteres, _mayusculas, _minusculas, _numeros, _simbolos);
                 },
                 activeColor: Colors.red,
               ),

@@ -6,7 +6,18 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  double _longitudPassword = 8;
+  bool _mayusculas = true;
+  bool _minusculas = true;
+  bool _numeros = true;
+  bool _simbolos = true;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,8 +30,24 @@ class MyApp extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              MiFila(),
-              SeccionPersonalizar(),
+              MiFila(
+                longitudPassword: _longitudPassword,
+                mayusculas: _mayusculas,
+                minusculas: _minusculas,
+                numeros: _numeros,
+                simbolos: _simbolos,
+              ),
+              SeccionPersonalizar(
+                onSettingsChanged: (longitud, facilDecir, facilLeer, todosCaracteres, mayusculas, minusculas, numeros, simbolos) {
+                  setState(() {
+                    _longitudPassword = longitud;
+                    _mayusculas = mayusculas;
+                    _minusculas = minusculas;
+                    _numeros = numeros;
+                    _simbolos = simbolos;
+                  });
+                },
+              ),
             ],
           ),
         ),

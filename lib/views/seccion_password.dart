@@ -1,6 +1,53 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-class MiFila extends StatelessWidget {
+class MiFila extends StatefulWidget {
+  final double longitudPassword;
+  final bool mayusculas;
+  final bool minusculas;
+  final bool numeros;
+  final bool simbolos;
+
+  const MiFila({
+    required this.longitudPassword,
+    required this.mayusculas,
+    required this.minusculas,
+    required this.numeros,
+    required this.simbolos,
+  });
+
+  @override
+  _MiFilaState createState() => _MiFilaState();
+}
+
+class _MiFilaState extends State<MiFila> {
+  late String password;
+
+  @override
+  void initState() {
+    super.initState();
+    password = _generatePassword(widget.longitudPassword, widget.mayusculas, widget.minusculas, widget.numeros, widget.simbolos);
+  }
+
+  String _generatePassword(double longitud, bool mayusculas, bool minusculas, bool numeros, bool simbolos) {
+    String chars = '';
+    if (mayusculas) chars += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    if (minusculas) chars += 'abcdefghijklmnopqrstuvwxyz';
+    if (numeros) chars += '0123456789';
+    if (simbolos) chars += '!@#\$%^&*()-_=+[{]}|;:,<.>/';
+  
+    final random = Random.secure();
+    return List.generate(longitud.round(), (index) => chars[random.nextInt(chars.length)]).join();
+  }
+
+  void _copyToClipboard() {
+    Clipboard.setData(ClipboardData(text: password));
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Contraseña copiada al portapapeles')),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -18,34 +65,28 @@ class MiFila extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Expanded(
+              Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'asdfgrewdvbnu36985',
-                      style: TextStyle(fontSize: 16),
+                      password,
+                      style: const TextStyle(fontSize: 16),
                     ),
                   ],
                 ),
               ),
-              Column(
-                children: [
-                  IconButton(
-                    icon: const Icon(Icons.content_copy),
-                    onPressed: () {
-                    },
-                  ),
-                ],
+              IconButton(
+                icon: const Icon(Icons.content_copy),
+                onPressed: _copyToClipboard,
               ),
-              Column(
-                children: [
-                  IconButton(
-                    icon: const Icon(Icons.refresh),
-                    onPressed: () {
-                    },
-                  ),
-                ],
+              IconButton(
+                icon: const Icon(Icons.refresh),
+                onPressed: () {
+                  setState(() {
+                    password = _generatePassword(widget.longitudPassword, widget.mayusculas, widget.minusculas, widget.numeros, widget.simbolos);
+                  });
+                },
               ),
             ],
           ),
